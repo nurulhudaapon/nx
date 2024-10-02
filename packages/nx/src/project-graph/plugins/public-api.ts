@@ -1,7 +1,6 @@
 // This file represents the public API for plugins which live in nx.json's plugins array.
 // For methods to interact with plugins from within Nx, see `./internal-api.ts`.
 
-import { NxPluginV1 } from '../../utils/nx-plugin.deprecated';
 import {
   FileMap,
   ProjectGraph,
@@ -72,7 +71,7 @@ export interface CreateNodesResult {
              The plugin should contain something like: `export createNodes = createNodesV2;` during this period. This will allow the plugin
              to maintain compatibility with Nx 19.2 and up.
  * Nx 21.X : The `CreateNodesV2` typing will be removed, as it has replaced `CreateNodes`.
- * 
+ *
  * @deprecated Use {@link CreateNodesV2} instead. CreateNodesV2 will replace this API. Read more about the transition above.
  */
 export type CreateNodes<T = unknown> = readonly [
@@ -182,4 +181,4 @@ export type NxPluginV2<TOptions = unknown> = {
 /**
  * A plugin for Nx
  */
-export type NxPlugin = NxPluginV1 | NxPluginV2;
+export type NxPlugin = NxPluginV2;
